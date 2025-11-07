@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASP.NET Core Web API - Project Presentation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-code"></i>
+                <span>ASP.NET Core Web API Project</span>
+            </div>
+            <div class="nav-menu">
+                <button class="nav-btn" onclick="showSlide(0)">Overview</button>
+                <button class="nav-btn" onclick="showSlide(1)">Architecture</button>
+                <button class="nav-btn" onclick="showSlide(2)">Technologies</button>
+                <button class="nav-btn" onclick="showSlide(3)">Tutorial 1</button>
+                <button class="nav-btn" onclick="showSlide(4)">Tutorial 2</button>
+                <button class="nav-btn" onclick="showSlide(5)">Tutorial 3</button>
+                <button class="nav-btn" onclick="showSlide(6)">File Structure</button>
+                <button class="nav-btn" onclick="showSlide(7)">Demo</button>
+                <button class="nav-btn" onclick="showSlide(8)">Conclusion</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="presentation-container">
+        <!-- Slide 0: Title/Overview -->
+        <div class="slide active" id="slide-0">
+            <div class="slide-content">
+                <div class="title-slide">
+                    <h1 class="main-title">
+                        <i class="fas fa-globe"></i>
+                        ASP.NET Core Web API
+                    </h1>
+                    <h2 class="subtitle">Complete Implementation Guide</h2>
+                    <div class="author-info">
+                        <div class="author-card">
+                            <h3>👤 Mikhael Nabil Salama Rezk</h3>
+                            <p><strong>Neptun ID:</strong> ihutsc</p>
+                            <p><strong>Course:</strong> Server Side Programming</p>
+                            <p><strong>GitHub:</strong> <a href="https://github.com/MI804-png/ServerSideProject2.git" target="_blank">
+                                <i class="fab fa-github"></i> ServerSideProject2
+                            </a></p>
+                        </div>
+                    </div>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <i class="fas fa-code-branch"></i>
+                            <span>3 Tutorial Sections</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-database"></i>
+                            <span>SQL + NoSQL</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-layer-group"></i>
+                            <span>Full-Stack</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Production-Ready</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 1: Architecture -->
+        <div class="slide" id="slide-1">
+            <div class="slide-content">
+                <h1><i class="fas fa-sitemap"></i> Project Architecture</h1>
+                <div class="architecture-section">
+                    <div class="arch-diagram">
+                        <div class="layer frontend">
+                            <h3><i class="fas fa-desktop"></i> Frontend Layer</h3>
+                            <div class="tech-item">JavaScript Client (ES6+)</div>
+                            <div class="tech-item">HTML5 + CSS3</div>
+                            <div class="tech-item">Fetch API</div>
+                        </div>
+                        <div class="arrow-down">
+                            <i class="fas fa-arrow-down"></i>
+                            <span>HTTP/JSON</span>
+                        </div>
+                        <div class="layer backend">
+                            <h3><i class="fas fa-server"></i> Backend Layer</h3>
+                            <div class="api-container">
+                                <div class="api-item">
+                                    <strong>TodoItems API</strong>
+                                    <span>Port 5021</span>
+                                </div>
+                                <div class="api-item">
+                                    <strong>Books API</strong>
+                                    <span>Port 5007</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="arrow-down">
+                            <i class="fas fa-arrow-down"></i>
+                            <span>Data Access</span>
+                        </div>
+                        <div class="layer database">
+                            <h3><i class="fas fa-database"></i> Data Layer</h3>
+                            <div class="db-container">
+                                <div class="db-item">
+                                    <strong>In-Memory DB</strong>
+                                    <span>TodoItems</span>
+                                </div>
+                                <div class="db-item">
+                                    <strong>MongoDB/Mock</strong>
+                                    <span>Books</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="arch-features">
+                        <h3>🎯 Key Features</h3>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> RESTful API Design</li>
+                            <li><i class="fas fa-check"></i> DTO Pattern for Security</li>
+                            <li><i class="fas fa-check"></i> CORS Configuration</li>
+                            <li><i class="fas fa-check"></i> Async Programming</li>
+                            <li><i class="fas fa-check"></i> Dependency Injection</li>
+                            <li><i class="fas fa-check"></i> Modern JavaScript</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Technologies -->
+        <div class="slide" id="slide-2">
+            <div class="slide-content">
+                <h1><i class="fas fa-tools"></i> Technology Stack & Choices</h1>
+                <div class="tech-grid">
+                    <div class="tech-category">
+                        <h3><i class="fas fa-server"></i> Backend</h3>
+                        <div class="tech-stack">
+                            <div class="tech-card">
+                                <div class="tech-icon csharp">C#</div>
+                                <h4>C# (.NET 9.0)</h4>
+                                <p>Type safety, performance, enterprise-ready</p>
+                                <ul>
+                                    <li>Strong typing prevents errors</li>
+                                    <li>Excellent runtime performance</li>
+                                    <li>Cross-platform compatibility</li>
+                                </ul>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-icon aspnet">ASP</div>
+                                <h4>ASP.NET Core</h4>
+                                <p>High-performance web framework</p>
+                                <ul>
+                                    <li>Built-in dependency injection</li>
+                                    <li>Middleware pipeline</li>
+                                    <li>Enterprise-grade security</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h3><i class="fas fa-database"></i> Database</h3>
+                        <div class="tech-stack">
+                            <div class="tech-card">
+                                <div class="tech-icon ef">EF</div>
+                                <h4>Entity Framework Core</h4>
+                                <p>ORM for relational data</p>
+                                <ul>
+                                    <li>LINQ integration</li>
+                                    <li>Migration support</li>
+                                    <li>In-memory database</li>
+                                </ul>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-icon mongodb">🍃</div>
+                                <h4>MongoDB</h4>
+                                <p>NoSQL document database</p>
+                                <ul>
+                                    <li>Flexible schema</li>
+                                    <li>JSON native</li>
+                                    <li>Cloud ready (Atlas)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h3><i class="fas fa-desktop"></i> Frontend</h3>
+                        <div class="tech-stack">
+                            <div class="tech-card">
+                                <div class="tech-icon js">JS</div>
+                                <h4>JavaScript (ES6+)</h4>
+                                <p>Modern client-side development</p>
+                                <ul>
+                                    <li>Async/await patterns</li>
+                                    <li>Fetch API</li>
+                                    <li>DOM manipulation</li>
+                                </ul>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-icon html">⚡</div>
+                                <h4>HTML5/CSS3</h4>
+                                <p>Modern web standards</p>
+                                <ul>
+                                    <li>Semantic markup</li>
+                                    <li>Responsive design</li>
+                                    <li>Progressive enhancement</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h3><i class="fas fa-cogs"></i> DevOps</h3>
+                        <div class="tech-stack">
+                            <div class="tech-card">
+                                <div class="tech-icon powershell">PS</div>
+                                <h4>PowerShell</h4>
+                                <p>Automation & deployment</p>
+                                <ul>
+                                    <li>Windows integration</li>
+                                    <li>Object-oriented</li>
+                                    <li>Cross-platform</li>
+                                </ul>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-icon git">📂</div>
+                                <h4>Git + GitHub</h4>
+                                <p>Version control & collaboration</p>
+                                <ul>
+                                    <li>Complete project history</li>
+                                    <li>Professional documentation</li>
+                                    <li>Open source sharing</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Tutorial 1 -->
+        <div class="slide" id="slide-3">
+            <div class="slide-content">
+                <h1><i class="fas fa-list-check"></i> Tutorial 1: Controller-based Web API</h1>
+                <div class="tutorial-section">
+                    <div class="tutorial-info">
+                        <div class="tutorial-header">
+                            <h2>TodoItems API</h2>
+                            <span class="port-badge">Port 5021</span>
+                        </div>
+                        <p>Task management system demonstrating RESTful API fundamentals</p>
+                    </div>
+                    
+                    <div class="tutorial-content">
+                        <div class="code-section">
+                            <h3>📋 Entity Model</h3>
+                            <pre><code class="language-csharp">public class TodoItem
+{
+    public long Id { get; set; }
+    public string? Name { get; set; }
+    public bool IsComplete { get; set; }
+    public string? Secret { get; set; }  // Not exposed via API
+}</code></pre>
+                            
+                            <h3>🔒 DTO Pattern (Security)</h3>
+                            <pre><code class="language-csharp">public class TodoItemDTO
+{
+    public long Id { get; set; }
+    public string? Name { get; set; }
+    public bool IsComplete { get; set; }
+    // Secret field omitted for security
+}</code></pre>
+                        </div>
+                        
+                        <div class="api-endpoints">
+                            <h3>🌐 API Endpoints</h3>
+                            <div class="endpoint-grid">
+                                <div class="endpoint get">
+                                    <span class="method">GET</span>
+                                    <span class="url">/api/TodoItems</span>
+                                    <span class="desc">Get all todos</span>
+                                </div>
+                                <div class="endpoint get">
+                                    <span class="method">GET</span>
+                                    <span class="url">/api/TodoItems/{id}</span>
+                                    <span class="desc">Get specific todo</span>
+                                </div>
+                                <div class="endpoint post">
+                                    <span class="method">POST</span>
+                                    <span class="url">/api/TodoItems</span>
+                                    <span class="desc">Create new todo</span>
+                                </div>
+                                <div class="endpoint put">
+                                    <span class="method">PUT</span>
+                                    <span class="url">/api/TodoItems/{id}</span>
+                                    <span class="desc">Update todo</span>
+                                </div>
+                                <div class="endpoint delete">
+                                    <span class="method">DELETE</span>
+                                    <span class="url">/api/TodoItems/{id}</span>
+                                    <span class="desc">Delete todo</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tutorial-features">
+                        <h3>✨ Key Features</h3>
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <i class="fas fa-shield-alt"></i>
+                                <h4>Security</h4>
+                                <p>DTO pattern prevents over-posting attacks</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-database"></i>
+                                <h4>Entity Framework</h4>
+                                <p>In-memory database for development</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-sync-alt"></i>
+                                <h4>Async Operations</h4>
+                                <p>Non-blocking database operations</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-globe"></i>
+                                <h4>CORS Enabled</h4>
+                                <p>Cross-origin requests for web clients</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Tutorial 2 -->
+        <div class="slide" id="slide-4">
+            <div class="slide-content">
+                <h1><i class="fas fa-book"></i> Tutorial 2: Web API with MongoDB</h1>
+                <div class="tutorial-section">
+                    <div class="tutorial-info">
+                        <div class="tutorial-header">
+                            <h2>Books API</h2>
+                            <span class="port-badge">Port 5007</span>
+                        </div>
+                        <p>Library/bookstore management demonstrating NoSQL integration</p>
+                    </div>
+                    
+                    <div class="tutorial-content">
+                        <div class="code-section">
+                            <h3>📄 MongoDB Document Model</h3>
+                            <pre><code class="language-csharp">public class Book
+{
+    [BsonId]
+    [BsonRepresentation(BsonType.ObjectId)]
+    public string? Id { get; set; }
+    
+    [BsonElement("Name")]
+    public string BookName { get; set; } = null!;
+    
+    public decimal Price { get; set; }
+    public string Category { get; set; } = null!;
+    public string Author { get; set; } = null!;
+}</code></pre>
+                            
+                            <h3>🔧 Service Layer Pattern</h3>
+                            <pre><code class="language-csharp">public class BooksService
+{
+    private readonly IMongoCollection&lt;Book&gt; _booksCollection;
+    
+    public async Task&lt;List&lt;Book&gt;&gt; GetAsync() =>
+        await _booksCollection.Find(_ => true).ToListAsync();
+        
+    public async Task CreateAsync(Book newBook) =>
+        await _booksCollection.InsertOneAsync(newBook);
+}</code></pre>
+                        </div>
+                        
+                        <div class="mongo-features">
+                            <h3>🍃 MongoDB Advantages</h3>
+                            <div class="features-comparison">
+                                <div class="comparison-item">
+                                    <h4>Flexible Schema</h4>
+                                    <p>Documents can have varying fields unlike SQL tables</p>
+                                </div>
+                                <div class="comparison-item">
+                                    <h4>JSON Native</h4>
+                                    <p>Perfect match for web APIs and JavaScript</p>
+                                </div>
+                                <div class="comparison-item">
+                                    <h4>Horizontal Scaling</h4>
+                                    <p>NoSQL advantages for large datasets</p>
+                                </div>
+                                <div class="comparison-item">
+                                    <h4>Cloud Ready</h4>
+                                    <p>MongoDB Atlas integration included</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="deployment-options">
+                        <h3>⚙️ Deployment Options</h3>
+                        <div class="options-grid">
+                            <div class="option-card">
+                                <i class="fas fa-cloud"></i>
+                                <h4>MongoDB Atlas</h4>
+                                <p>Cloud database with free tier</p>
+                                <span class="badge recommended">Recommended</span>
+                            </div>
+                            <div class="option-card">
+                                <i class="fas fa-server"></i>
+                                <h4>Local MongoDB</h4>
+                                <p>Self-hosted database server</p>
+                                <span class="badge dev">Development</span>
+                            </div>
+                            <div class="option-card">
+                                <i class="fas fa-memory"></i>
+                                <h4>Mock Service</h4>
+                                <p>In-memory demo service</p>
+                                <span class="badge demo">Demo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Tutorial 3 -->
+        <div class="slide" id="slide-5">
+            <div class="slide-content">
+                <h1><i class="fas fa-globe"></i> Tutorial 3: JavaScript Client</h1>
+                <div class="tutorial-section">
+                    <div class="tutorial-info">
+                        <div class="tutorial-header">
+                            <h2>Modern Web Client</h2>
+                            <span class="tech-badge">ES6+ JavaScript</span>
+                        </div>
+                        <p>Interactive web interface consuming both REST APIs</p>
+                    </div>
+                    
+                    <div class="tutorial-content">
+                        <div class="code-section">
+                            <h3>🚀 Modern JavaScript Features</h3>
+                            <pre><code class="language-javascript">// Async/Await for cleaner code
+async function addTodo() {
+    const todo = {
+        name: document.getElementById('todoName').value.trim(),
+        isComplete: document.getElementById('todoComplete').checked
+    };
+    
+    try {
+        const response = await fetch(TODO_API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(todo)
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const createdTodo = await response.json();
+        displayResponse('todoResponse', `Todo created: ${createdTodo.id}`);
+        getTodos(); // Refresh the list
+    } catch (error) {
+        handleApiError(error, 'todoResponse');
+    }
+}</code></pre>
+                        </div>
+                        
+                        <div class="client-features">
+                            <h3>💡 Client Features</h3>
+                            <div class="features-showcase">
+                                <div class="feature-demo">
+                                    <h4><i class="fas fa-exchange-alt"></i> API Integration</h4>
+                                    <ul>
+                                        <li>Fetch API for HTTP requests</li>
+                                        <li>JSON data exchange</li>
+                                        <li>RESTful operations (CRUD)</li>
+                                        <li>Real-time UI updates</li>
+                                    </ul>
+                                </div>
+                                <div class="feature-demo">
+                                    <h4><i class="fas fa-exclamation-triangle"></i> Error Handling</h4>
+                                    <ul>
+                                        <li>Network error detection</li>
+                                        <li>User-friendly messages</li>
+                                        <li>HTTP status code handling</li>
+                                        <li>Graceful degradation</li>
+                                    </ul>
+                                </div>
+                                <div class="feature-demo">
+                                    <h4><i class="fas fa-mobile-alt"></i> User Experience</h4>
+                                    <ul>
+                                        <li>Responsive design</li>
+                                        <li>Interactive forms</li>
+                                        <li>Loading states</li>
+                                        <li>Success notifications</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-pages">
+                        <h3>📄 Demo Pages</h3>
+                        <div class="pages-grid">
+                            <div class="page-card">
+                                <h4>working-demo.html</h4>
+                                <p>Main presentation interface</p>
+                                <span class="badge primary">Primary</span>
+                            </div>
+                            <div class="page-card">
+                                <h4>index.html</h4>
+                                <p>Complete feature showcase</p>
+                                <span class="badge full">Full Featured</span>
+                            </div>
+                            <div class="page-card">
+                                <h4>simple.html</h4>
+                                <p>Basic learning example</p>
+                                <span class="badge simple">Educational</span>
+                            </div>
+                            <div class="page-card">
+                                <h4>test.html</h4>
+                                <p>Development testing page</p>
+                                <span class="badge test">Testing</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        <!-- Slide 6: File Structure -->
+        <div class="slide" id="slide-6">
+            <div class="slide-content">
+                <h1><i class="fas fa-folder-tree"></i> Project File Structure & Programming Languages</h1>
+                <div class="structure-section">
+                    <div class="structure-overview">
+                        <h2>🗂️ Professional Organization & Technology Stack</h2>
+                        <p>Multi-language project demonstrating full-stack development with comprehensive file structure</p>
+                    </div>
+                    
+                    <div class="structure-content">
+                        <!-- Programming Languages Section -->
+                        <div class="languages-used">
+                            <h3>💻 Programming Languages & Strategic Justification</h3>
+                            <div class="languages-grid">
+                                <div class="lang-card csharp-bg">
+                                    <div class="lang-icon">C#</div>
+                                    <h4>C# (.NET 9.0)</h4>
+                                    <div class="lang-details">
+                                        <strong>Purpose:</strong> Backend APIs & Services<br>
+                                        <strong>Why Chosen:</strong>
+                                        <ul>
+                                            <li>✅ Type safety prevents runtime errors</li>
+                                            <li>✅ High performance compiled language</li>
+                                            <li>✅ Enterprise-grade framework ecosystem</li>
+                                            <li>✅ Cross-platform compatibility (Windows/Linux/macOS)</li>
+                                            <li>✅ Rich NuGet package ecosystem</li>
+                                            <li>✅ Excellent async/await support</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="lang-card js-bg">
+                                    <div class="lang-icon">JS</div>
+                                    <h4>JavaScript (ES6+)</h4>
+                                    <div class="lang-details">
+                                        <strong>Purpose:</strong> Frontend Client & API Integration<br>
+                                        <strong>Why Chosen:</strong>
+                                        <ul>
+                                            <li>✅ Universal browser support (no compilation needed)</li>
+                                            <li>✅ Native async programming with Promises/await</li>
+                                            <li>✅ Perfect JSON integration for web APIs</li>
+                                            <li>✅ Modern ES6+ features (arrow functions, modules)</li>
+                                            <li>✅ Real-time DOM manipulation capabilities</li>
+                                            <li>✅ Fetch API for clean HTTP communication</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="lang-card json-bg">
+                                    <div class="lang-icon">{ }</div>
+                                    <h4>JSON</h4>
+                                    <div class="lang-details">
+                                        <strong>Purpose:</strong> Data Exchange & Configuration<br>
+                                        <strong>Why Chosen:</strong>
+                                        <ul>
+                                            <li>✅ Language-agnostic data format</li>
+                                            <li>✅ Lightweight vs XML (smaller payload)</li>
+                                            <li>✅ Human-readable and debuggable</li>
+                                            <li>✅ REST API industry standard</li>
+                                            <li>✅ MongoDB native document format</li>
+                                            <li>✅ .NET Core configuration format</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="lang-card html-bg">
+                                    <div class="lang-icon">⚡</div>
+                                    <h4>HTML5 & CSS3</h4>
+                                    <div class="lang-details">
+                                        <strong>Purpose:</strong> UI Presentation & Styling<br>
+                                        <strong>Why Chosen:</strong>
+                                        <ul>
+                                            <li>✅ Web standards compliance & accessibility</li>
+                                            <li>✅ Semantic markup for better SEO</li>
+                                            <li>✅ Responsive design (Flexbox/Grid layouts)</li>
+                                            <li>✅ Progressive enhancement support</li>
+                                            <li>✅ Cross-browser compatibility</li>
+                                            <li>✅ No framework dependencies required</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="lang-card ps-bg">
+                                    <div class="lang-icon">PS</div>
+                                    <h4>PowerShell</h4>
+                                    <div class="lang-details">
+                                        <strong>Purpose:</strong> Automation & Deployment<br>
+                                        <strong>Why Chosen:</strong>
+                                        <ul>
+                                            <li>✅ Windows native integration & admin tools</li>
+                                            <li>✅ Object-oriented scripting (vs text-based)</li>
+                                            <li>✅ Direct .NET object manipulation</li>
+                                            <li>✅ Cross-platform PowerShell Core support</li>
+                                            <li>✅ Perfect for CI/CD pipeline automation</li>
+                                            <li>✅ Rich cmdlet ecosystem for system operations</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Complete File Structure -->
+                        <div class="file-structure">
+                            <h3>📁 Complete Project File Structure</h3>
+                            <div class="structure-columns">
+                                <div class="structure-column">
+                                    <h4>📂 Root Directory - Project Management</h4>
+                                    <div class="file-tree">
+                                        <div class="tree-item folder">
+                                            <i class="fas fa-folder"></i> ServerSideProject2/
+                                        </div>
+                                        <div class="tree-item file doc">
+                                            <i class="fab fa-markdown"></i> README.md
+                                            <span class="file-desc">GitHub front page & quick overview</span>
+                                        </div>
+                                        <div class="tree-item file doc">
+                                            <i class="fas fa-file-alt"></i> DETAILED_DOCUMENTATION.md
+                                            <span class="file-desc">50+ page complete technical guide</span>
+                                        </div>
+                                        <div class="tree-item file doc">
+                                            <i class="fas fa-presentation"></i> PRESENTATION_SUMMARY.md
+                                            <span class="file-desc">Academic presentation material</span>
+                                        </div>
+                                        <div class="tree-item file doc">
+                                            <i class="fas fa-book-open"></i> HOW_TO_RUN.md
+                                            <span class="file-desc">Step-by-step execution guide</span>
+                                        </div>
+                                        <div class="tree-item file script">
+                                            <i class="fas fa-terminal"></i> quick-start.ps1
+                                            <span class="file-desc">Automated setup & deployment script</span>
+                                        </div>
+                                        <div class="tree-item file test">
+                                            <i class="fas fa-code"></i> api-requests.http
+                                            <span class="file-desc">Ready-to-use API testing examples</span>
+                                        </div>
+                                        <div class="tree-item folder">
+                                            <i class="fas fa-folder"></i> presentation/
+                                            <span class="file-desc">This web presentation</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="structure-column">
+                                    <h4>🏗️ ControllerApi/ - Tutorial 1 (Entity Framework)</h4>
+                                    <div class="file-tree">
+                                        <div class="tree-item file csharp">
+                                            <i class="fas fa-file-code"></i> Program.cs
+                                            <span class="file-desc">App startup, DI container, middleware pipeline</span>
+                                        </div>
+                                        <div class="tree-item file json">
+                                            <i class="fas fa-cog"></i> appsettings.json
+                                            <span class="file-desc">Database connection & CORS configuration</span>
+                                        </div>
+                                        <div class="tree-item file csharp">
+                                            <i class="fas fa-file-code"></i> ControllerApi.csproj
+                                            <span class="file-desc">.NET 9.0 project with EF Core packages</span>
+                                        </div>
+                                        <div class="tree-item folder">
+                                            <i class="fas fa-folder"></i> Controllers/
+                                        </div>
+                                        <div class="tree-item file csharp nested">
+                                            <i class="fas fa-file-code"></i> TodoItemsController.cs
+                                            <span class="file-desc">REST API endpoints (GET/POST/PUT/DELETE)</span>
+                                        </div>
+                                        <div class="tree-item folder">
+                                            <i class="fas fa-folder"></i> Models/
+                                        </div>
+                                        <div class="tree-item file csharp nested">
+                                            <i class="fas fa-file-code"></i> TodoItem.cs
+                                            <span class="file-desc">Entity model (includes Secret field)</span>
+                                        </div>
+                                        <div class="tree-item file csharp nested">
+                                            <i class="fas fa-shield-alt"></i> TodoItemDTO.cs
+                                            <span class="file-desc">Secure API contract (no Secret field)</span>
+                                        </div>
+                                        <div class="tree-item file csharp nested">
+                                            <i class="fas fa-database"></i> TodoContext.cs
+                                            <span class="file-desc">Entity Framework DbContext for data access</span>
+                                        </div>
+                                        <div class="tree-item folder">
+                                            <i class="fas fa-folder"></i> Properties/
+                                        </div>
+                                        <div class="tree-item file json nested">
+                                            <i class="fas fa-cog"></i> launchSettings.json
+                                            <span class="file-desc">Development server config (port 5021)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="structure-column">
+                                    <h4>🍃 MongoApi/ - Tutorial 2 (MongoDB NoSQL)</h4>
+                                    <div class="file-tree">
+                                        <div class="tree-item file csharp">
+                                            <i class="fas fa-file-code"></i> Program.cs
+                                            <span class="file-desc">MongoDB service registration & DI setup</span>
+                                        </div>
+                                        <div class="tree-item file json">
+                                            <i class="fas fa-cog"></i> appsettings.json
+                                            <span class="file-desc">MongoDB Atlas connection string & settings</span>
+                                        </div>
+                                        <div class="tree-item file csharp">
+                                            <i class="fas fa-file-code"></i> MongoApi.csproj
+                                            <span class="file-desc">.NET project with MongoDB.Driver package</span>
+                                        </div>
+                                        <div class="tree-item folder">
+                                            <i class="fas fa-folder"></i> Controllers/
+                                        </div>
+                                        <div class="tree-item file csharp nested">
+                                            <i class="fas fa-file-code"></i> BooksController.cs
+                                            <span class="file-desc">Document-based CRUD operations</span>
+                                        </div>
+                                        <div class="tree-item folder">
+                                            <i class="fas fa-folder"></i> Models/
+                                        </div>
+                                        <div class="tree-item file csharp nested">
+                                            <i class="fas fa-file-alt"></i> Book.cs
+                                            <span class="file-desc">MongoDB document with [BsonId] attributes</span>
+                                        </div>
+                                        <div class="tree-item file csharp nested">
+                                            <i class="fas fa-cog"></i> BookstoreDatabaseSettings.cs
+                                            <span class="file-desc">Configuration binding for connection settings</span>
+                                        </div>
+                                        <div class="tree-item folder">
+                                            <i class="fas fa-folder"></i> Services/
+                                        </div>
+                                        <div class="tree-item file csharp nested">
+                                            <i class="fas fa-server"></i> BooksService.cs
+                                            <span class="file-desc">MongoDB data access layer & repository pattern</span>
+                                        </div>
+                                        <div class="tree-item file csharp nested">
+                                            <i class="fas fa-memory"></i> MockBooksService.cs
+                                            <span class="file-desc">In-memory demo service (no MongoDB required)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="structure-column">
+                                    <h4>🌐 WebApiJsClient/ - Tutorial 3 (Frontend)</h4>
+                                    <div class="file-tree">
+                                        <div class="tree-item file html">
+                                            <i class="fab fa-html5"></i> index.html
+                                            <span class="file-desc">Complete feature showcase with both APIs</span>
+                                        </div>
+                                        <div class="tree-item file html">
+                                            <i class="fab fa-html5"></i> working-demo.html
+                                            <span class="file-desc">Main presentation interface (simplified)</span>
+                                        </div>
+                                        <div class="tree-item file js">
+                                            <i class="fab fa-js-square"></i> app.js
+                                            <span class="file-desc">Modern JavaScript with Fetch API implementation</span>
+                                        </div>
+                                        <div class="tree-item file html">
+                                            <i class="fab fa-html5"></i> simple.html
+                                            <span class="file-desc">Basic learning example with minimal features</span>
+                                        </div>
+                                        <div class="tree-item file html">
+                                            <i class="fab fa-html5"></i> test.html
+                                            <span class="file-desc">Development testing & debugging interface</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- GitHub Integration -->
+                        <div class="github-integration">
+                            <h3><i class="fab fa-github"></i> GitHub Repository Integration</h3>
+                            <div class="github-content">
+                                <div class="repo-highlights">
+                                    <div class="repo-feature">
+                                        <i class="fas fa-code-branch"></i>
+                                        <h4>Complete Source Code</h4>
+                                        <p><strong>Repository:</strong> <a href="https://github.com/MI804-png/ServerSideProject2.git" target="_blank">MI804-png/ServerSideProject2</a></p>
+                                        <ul>
+                                            <li>✅ All three tutorial implementations</li>
+                                            <li>✅ Production-ready enhancements</li>
+                                            <li>✅ Clean commit history with meaningful messages</li>
+                                        </ul>
+                                    </div>
+                                    <div class="repo-feature">
+                                        <i class="fas fa-book"></i>
+                                        <h4>Professional Documentation</h4>
+                                        <ul>
+                                            <li>✅ 50+ page technical documentation</li>
+                                            <li>✅ Step-by-step setup instructions</li>
+                                            <li>✅ Academic presentation materials</li>
+                                            <li>✅ Comprehensive file structure explanations</li>
+                                        </ul>
+                                    </div>
+                                    <div class="repo-feature">
+                                        <i class="fas fa-rocket"></i>
+                                        <h4>Deployment Ready</h4>
+                                        <ul>
+                                            <li>✅ Automated PowerShell setup scripts</li>
+                                            <li>✅ Multiple database deployment options</li>
+                                            <li>✅ CORS configuration for web clients</li>
+                                            <li>✅ Environment-specific configurations</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Architecture Benefits -->
+                        <div class="architecture-benefits">
+                            <h3>🏗️ Why This Architecture & Language Mix?</h3>
+                            <div class="benefits-grid">
+                                <div class="benefit-card">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <h4>Educational Progression</h4>
+                                    <p><strong>Learning Path:</strong></p>
+                                    <ol>
+                                        <li>Basic REST API → Entity Framework fundamentals</li>
+                                        <li>NoSQL Integration → Document database concepts</li>
+                                        <li>Full-Stack → Frontend-backend communication</li>
+                                    </ol>
+                                </div>
+                                <div class="benefit-card">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <h4>Security Patterns</h4>
+                                    <p><strong>Production Security:</strong></p>
+                                    <ul>
+                                        <li>DTO pattern prevents over-posting vulnerabilities</li>
+                                        <li>CORS configuration for controlled access</li>
+                                        <li>Input validation & error handling</li>
+                                        <li>Secure database connection management</li>
+                                    </ul>
+                                </div>
+                                <div class="benefit-card">
+                                    <i class="fas fa-industry"></i>
+                                    <h4>Enterprise Ready</h4>
+                                    <p><strong>Professional Patterns:</strong></p>
+                                    <ul>
+                                        <li>Dependency injection for loose coupling</li>
+                                        <li>Async programming for scalability</li>
+                                        <li>Repository pattern for data access</li>
+                                        <li>Configuration management for environments</li>
+                                    </ul>
+                                </div>
+                                <div class="benefit-card">
+                                    <i class="fas fa-globe-americas"></i>
+                                    <h4>Industry Relevance</h4>
+                                    <p><strong>Real-World Technology:</strong></p>
+                                    <ul>
+                                        <li>.NET used by 65% of Fortune 500 companies</li>
+                                        <li>JavaScript/JSON universal web standards</li>
+                                        <li>MongoDB powers modern web applications</li>
+                                        <li>PowerShell essential for Windows DevOps</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Demo -->
+        <div class="slide" id="slide-7">
+            <div class="slide-content">
+                <h1><i class="fas fa-play-circle"></i> Live Demonstration</h1>
+                <div class="demo-section">
+                    <div class="demo-header">
+                        <h2>🚀 Interactive Demo</h2>
+                        <p>Test both APIs and see the JavaScript client in action</p>
+                    </div>
+                    
+                    <div class="demo-content">
+                        <div class="demo-apis">
+                            <div class="api-demo">
+                                <h3><i class="fas fa-list-check"></i> TodoItems API</h3>
+                                <div class="api-info">
+                                    <span class="url">http://localhost:5021</span>
+                                    <button class="demo-btn" onclick="openSwagger('5021')">
+                                        <i class="fas fa-external-link-alt"></i> Open Swagger
+                                    </button>
+                                </div>
+                                <div class="demo-actions">
+                                    <button class="action-btn get" onclick="testTodoAPI('get')">
+                                        <i class="fas fa-download"></i> GET Todos
+                                    </button>
+                                    <button class="action-btn post" onclick="testTodoAPI('post')">
+                                        <i class="fas fa-plus"></i> Create Todo
+                                    </button>
+                                    <button class="action-btn put" onclick="testTodoAPI('put')">
+                                        <i class="fas fa-edit"></i> Update Todo
+                                    </button>
+                                    <button class="action-btn delete" onclick="testTodoAPI('delete')">
+                                        <i class="fas fa-trash"></i> Delete Todo
+                                    </button>
+                                </div>
+                                <div class="demo-result" id="todo-result">
+                                    <pre><code>Ready to test TodoItems API...</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="api-demo">
+                                <h3><i class="fas fa-book"></i> Books API</h3>
+                                <div class="api-info">
+                                    <span class="url">http://localhost:5007</span>
+                                    <button class="demo-btn" onclick="openSwagger('5007')">
+                                        <i class="fas fa-external-link-alt"></i> Open Swagger
+                                    </button>
+                                </div>
+                                <div class="demo-actions">
+                                    <button class="action-btn get" onclick="testBookAPI('get')">
+                                        <i class="fas fa-download"></i> GET Books
+                                    </button>
+                                    <button class="action-btn post" onclick="testBookAPI('post')">
+                                        <i class="fas fa-plus"></i> Create Book
+                                    </button>
+                                    <button class="action-btn put" onclick="testBookAPI('put')">
+                                        <i class="fas fa-edit"></i> Update Book
+                                    </button>
+                                    <button class="action-btn delete" onclick="testBookAPI('delete')">
+                                        <i class="fas fa-trash"></i> Delete Book
+                                    </button>
+                                </div>
+                                <div class="demo-result" id="book-result">
+                                    <pre><code>Ready to test Books API...</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="client-demo">
+                            <h3><i class="fas fa-desktop"></i> JavaScript Client</h3>
+                            <div class="client-options">
+                                <button class="client-btn" onclick="openClient('working-demo')">
+                                    <i class="fas fa-star"></i> Main Demo
+                                </button>
+                                <button class="client-btn" onclick="openClient('index')">
+                                    <i class="fas fa-th-large"></i> Full Featured
+                                </button>
+                                <button class="client-btn" onclick="openClient('simple')">
+                                    <i class="fas fa-graduation-cap"></i> Simple Version
+                                </button>
+                            </div>
+                            <div class="client-info">
+                                <p><i class="fas fa-info-circle"></i> 
+                                Click any button above to open the JavaScript client interface. 
+                                The client will interact with both APIs running on ports 5021 and 5007.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="setup-commands">
+                            <h3><i class="fas fa-terminal"></i> Quick Start Commands</h3>
+                            <div class="command-section">
+                                <h4>Option 1: Automated Setup</h4>
+                                <pre><code class="language-powershell">.\quick-start.ps1</code></pre>
+                                
+                                <h4>Option 2: Manual Setup</h4>
+                                <pre><code class="language-powershell"># Terminal 1: TodoItems API
+cd ControllerApi
+dotnet run
+
+# Terminal 2: Books API  
+cd MongoApi
+dotnet run --urls "http://localhost:5007"
+
+# Terminal 3: Open client
+start WebApiJsClient\working-demo.html</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Conclusion -->
+        <div class="slide" id="slide-8">
+            <div class="slide-content">
+                <h1><i class="fas fa-trophy"></i> Project Achievements</h1>
+                <div class="conclusion-section">
+                    <div class="achievements">
+                        <h2>🎯 Complete Tutorial Implementation</h2>
+                        <div class="achievement-grid">
+                            <div class="achievement-card">
+                                <div class="achievement-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <h3>Tutorial 1</h3>
+                                <p>Controller-based Web API with Entity Framework</p>
+                                <ul>
+                                    <li>RESTful CRUD operations</li>
+                                    <li>DTO pattern for security</li>
+                                    <li>In-memory database</li>
+                                </ul>
+                            </div>
+                            <div class="achievement-card">
+                                <div class="achievement-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <h3>Tutorial 2</h3>
+                                <p>MongoDB NoSQL integration</p>
+                                <ul>
+                                    <li>Document-based storage</li>
+                                    <li>Cloud database option</li>
+                                    <li>Service layer pattern</li>
+                                </ul>
+                            </div>
+                            <div class="achievement-card">
+                                <div class="achievement-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <h3>Tutorial 3</h3>
+                                <p>Modern JavaScript client</p>
+                                <ul>
+                                    <li>Fetch API integration</li>
+                                    <li>Error handling</li>
+                                    <li>Responsive design</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="enhancements">
+                        <h2>🚀 Beyond Tutorial Requirements</h2>
+                        <div class="enhancement-list">
+                            <div class="enhancement-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Production-ready security with CORS and DTOs</span>
+                            </div>
+                            <div class="enhancement-item">
+                                <i class="fas fa-robot"></i>
+                                <span>Automated setup and deployment scripts</span>
+                            </div>
+                            <div class="enhancement-item">
+                                <i class="fas fa-book-open"></i>
+                                <span>Comprehensive documentation (50+ pages)</span>
+                            </div>
+                            <div class="enhancement-item">
+                                <i class="fas fa-vial"></i>
+                                <span>Multiple testing options and mock services</span>
+                            </div>
+                            <div class="enhancement-item">
+                                <i class="fas fa-cloud"></i>
+                                <span>Cloud database integration (MongoDB Atlas)</span>
+                            </div>
+                            <div class="enhancement-item">
+                                <i class="fas fa-code-branch"></i>
+                                <span>Professional Git repository with clean history</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="learning-outcomes">
+                        <h2>🎓 Skills Demonstrated</h2>
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h3>Backend Development</h3>
+                                <ul>
+                                    <li>ASP.NET Core Web API</li>
+                                    <li>Entity Framework Core</li>
+                                    <li>MongoDB integration</li>
+                                    <li>Dependency injection</li>
+                                    <li>Async programming</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h3>Frontend Development</h3>
+                                <ul>
+                                    <li>Modern JavaScript (ES6+)</li>
+                                    <li>Fetch API</li>
+                                    <li>DOM manipulation</li>
+                                    <li>Error handling</li>
+                                    <li>Responsive design</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h3>Professional Practices</h3>
+                                <ul>
+                                    <li>Git version control</li>
+                                    <li>Technical documentation</li>
+                                    <li>Testing strategies</li>
+                                    <li>Security implementation</li>
+                                    <li>Deployment automation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="github-showcase">
+                        <h2><i class="fab fa-github"></i> GitHub Repository</h2>
+                        <div class="repo-info">
+                            <a href="https://github.com/MI804-png/ServerSideProject2.git" target="_blank" class="repo-link">
+                                <i class="fab fa-github"></i>
+                                https://github.com/MI804-png/ServerSideProject2.git
+                            </a>
+                            <div class="repo-stats">
+                                <div class="stat">
+                                    <i class="fas fa-code"></i>
+                                    <span>Complete source code</span>
+                                </div>
+                                <div class="stat">
+                                    <i class="fas fa-file-alt"></i>
+                                    <span>50+ pages documentation</span>
+                                </div>
+                                <div class="stat">
+                                    <i class="fas fa-cog"></i>
+                                    <span>Automated setup scripts</span>
+                                </div>
+                                <div class="stat">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>Educational resources</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="final-message">
+                        <h2>✨ Ready for Production & Further Development</h2>
+                        <p>This implementation demonstrates mastery of modern web development technologies and serves as a solid foundation for building scalable, secure web applications.</p>
+                        <div class="contact-info">
+                            <p><strong>Thank you for your attention!</strong></p>
+                            <p>Questions and feedback welcome.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-navigation">
+        <button class="nav-arrow prev" onclick="prevSlide()">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="slide-indicators">
+            <span class="indicator active" onclick="showSlide(0)"></span>
+            <span class="indicator" onclick="showSlide(1)"></span>
+            <span class="indicator" onclick="showSlide(2)"></span>
+            <span class="indicator" onclick="showSlide(3)"></span>
+            <span class="indicator" onclick="showSlide(4)"></span>
+            <span class="indicator" onclick="showSlide(5)"></span>
+            <span class="indicator" onclick="showSlide(6)"></span>
+            <span class="indicator" onclick="showSlide(7)"></span>
+            <span class="indicator" onclick="showSlide(8)"></span>
+        </div>
+        <button class="nav-arrow next" onclick="nextSlide()">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-powershell.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
