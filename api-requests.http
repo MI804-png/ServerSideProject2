@@ -1,0 +1,119 @@
+###
+# ASP.NET Core Web API Tutorial - Sample HTTP Requests
+# Use with VS Code REST Client extension or similar tools
+
+###
+# 1. CONTROLLER API (TodoItems) - Default port 7000/5000
+###
+
+### Get all todos
+GET https://localhost:7000/api/TodoItems
+
+### Get specific todo
+GET https://localhost:7000/api/TodoItems/1
+
+### Create new todo
+POST https://localhost:7000/api/TodoItems
+Content-Type: application/json
+
+{
+  "name": "Learn ASP.NET Core Web API",
+  "isComplete": false
+}
+
+### Create another todo
+POST https://localhost:7000/api/TodoItems
+Content-Type: application/json
+
+{
+  "name": "Implement MongoDB API",
+  "isComplete": true
+}
+
+### Update todo
+PUT https://localhost:7000/api/TodoItems/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Learn ASP.NET Core Web API (Updated)",
+  "isComplete": true
+}
+
+### Delete todo
+DELETE https://localhost:7000/api/TodoItems/1
+
+###
+# 2. MONGODB API (Books) - Default port 7001/5001
+###
+
+### Get all books
+GET https://localhost:7001/api/Books
+
+### Create new book
+POST https://localhost:7001/api/Books
+Content-Type: application/json
+
+{
+  "bookName": "Clean Code",
+  "author": "Robert C. Martin",
+  "category": "Programming",
+  "price": 45.99
+}
+
+### Create another book
+POST https://localhost:7001/api/Books
+Content-Type: application/json
+
+{
+  "bookName": "The Pragmatic Programmer",
+  "author": "David Thomas, Andrew Hunt",
+  "category": "Programming",
+  "price": 39.95
+}
+
+### Create web development book
+POST https://localhost:7001/api/Books
+Content-Type: application/json
+
+{
+  "bookName": "ASP.NET Core in Action",
+  "author": "Andrew Lock",
+  "category": "Web Development",
+  "price": 49.99
+}
+
+### Update book (replace {id} with actual MongoDB ObjectId)
+PUT https://localhost:7001/api/Books/{id}
+Content-Type: application/json
+
+{
+  "id": "{id}",
+  "bookName": "Clean Code - Updated",
+  "author": "Robert C. Martin",
+  "category": "Software Engineering",
+  "price": 47.99
+}
+
+### Delete book (replace {id} with actual MongoDB ObjectId)
+DELETE https://localhost:7001/api/Books/{id}
+
+###
+# Alternative HTTP endpoints (if running on different ports)
+###
+
+### TodoItems on HTTP (port 5000)
+GET http://localhost:5000/api/TodoItems
+
+### Books on HTTP (port 5001)  
+GET http://localhost:5001/api/Books
+
+###
+# OpenAPI/Swagger Documentation URLs
+###
+
+### ControllerApi Swagger
+# GET https://localhost:7000/swagger
+
+### MongoApi Swagger  
+# GET https://localhost:7001/swagger
