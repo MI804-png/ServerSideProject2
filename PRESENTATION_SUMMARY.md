@@ -1,6 +1,7 @@
 # ASP.NET Core Web API - Presentation Summary
 
-**Student:** Mikhael Nabil Salama Rezk | **Neptun:** ihutsc | **Course:** Server Side Programming
+**Student:** Mikhael Nabil Salama Rezk | **Neptun:** ihutsc | **Course:** Server Side Programming  
+**🔗 GitHub Repository:** https://github.com/MI804-png/ServerSideProject2.git
 
 ---
 
@@ -22,6 +23,31 @@ A complete implementation of Microsoft's ASP.NET Core Web API tutorial with **3 
 - **Technology**: HTML5 + CSS3 + Vanilla JavaScript  
 - **Purpose**: User interface for both APIs
 - **Key Features**: Fetch API, error handling, responsive design
+
+---
+
+## 📂 GitHub Repository Highlights
+
+### **🔗 Complete Source Code Available:**
+**Repository URL:** https://github.com/MI804-png/ServerSideProject2.git
+
+### **📋 Repository Features:**
+- ✅ **Complete Implementation** - All tutorial sections with enhancements
+- ✅ **Production-Ready Code** - CORS, DTOs, error handling, security
+- ✅ **Comprehensive Documentation** - 40+ pages of technical guides
+- ✅ **Automated Setup** - PowerShell scripts for instant deployment
+- ✅ **Multiple Testing Options** - Web interface, Swagger docs, HTTP files
+- ✅ **Educational Resources** - Step-by-step guides and presentation materials
+
+### **🚀 Repository Structure:**
+```
+ServerSideProject2/
+├── 📁 ControllerApi/        # Tutorial 1: Controller-based API
+├── 📁 MongoApi/            # Tutorial 2: MongoDB integration  
+├── 📁 WebApiJsClient/      # Tutorial 3: JavaScript client
+├── 📄 Documentation Files  # Complete guides and instructions
+└── 📄 Setup Scripts        # Automated deployment tools
+```
 
 ---
 
