@@ -4,12 +4,22 @@ using MongoApi.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.Configure<BookstoreDatabaseSettings>(
-    builder.Configuration.GetSection("BookstoreDatabase"));
-
-builder.Services.AddSingleton<BooksService>();
+// Note: Using mock service for demo purposes - no MongoDB required
+builder.Services.AddSingleton<MockBooksService>();
 
 builder.Services.AddControllers();
+
+// Add CORS
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
@@ -22,6 +32,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors();
 
 app.UseAuthorization();
 

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ControllerApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4cca70e1bbf2eb5e0e4b7cb664a03b7ed6ef9880")]
 [assembly: System.Reflection.AssemblyProductAttribute("ControllerApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ControllerApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

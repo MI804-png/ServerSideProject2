@@ -22,6 +22,7 @@ C:\project\ServerSideProject2\MongoApi\obj\Debug\net9.0\MongoApi.AssemblyInfo.cs
 C:\project\ServerSideProject2\MongoApi\obj\Debug\net9.0\MongoApi.csproj.CoreCompileInputs.cache
 C:\project\ServerSideProject2\MongoApi\obj\Debug\net9.0\MongoApi.MvcApplicationPartsAssemblyInfo.cs
 C:\project\ServerSideProject2\MongoApi\obj\Debug\net9.0\MongoApi.MvcApplicationPartsAssemblyInfo.cache
+C:\project\ServerSideProject2\MongoApi\obj\Debug\net9.0\MongoApi.sourcelink.json
 C:\project\ServerSideProject2\MongoApi\obj\Debug\net9.0\rjimswa.dswa.cache.json
 C:\project\ServerSideProject2\MongoApi\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
 C:\project\ServerSideProject2\MongoApi\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json

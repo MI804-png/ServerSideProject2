@@ -1,6 +1,6 @@
 // Configuration
-const TODO_API_URL = 'https://localhost:7000/api/TodoItems';
-const BOOKS_API_URL = 'https://localhost:7001/api/Books';
+const TODO_API_URL = 'http://localhost:5021/api/TodoItems';
+const BOOKS_API_URL = 'http://localhost:5007/api/Books';
 
 // Helper function to display API responses
 function displayResponse(elementId, message) {

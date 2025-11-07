@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>ASP.NET Core Web API Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .response {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .status-success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .status-error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 ASP.NET Core Web API Tutorial Test</h1>
+        <p style="text-align: center;">
+            <strong>Author:</strong> Mikhael Nabil Salama Rezk (ihutsc)<br>
+            Current time: <span id="time"></span>
+        </p>
+    </div>
+
+    <div class="container">
+        <h2>Quick API Test</h2>
+        <p><strong>Todo API:</strong> http://localhost:5021/api/TodoItems</p>
+        <p><strong>Books API:</strong> http://localhost:5007/api/Books</p>
+        
+        <button onclick="testTodoAPI()">Test Todo API</button>
+        <button onclick="addSampleTodo()">Add Sample Todo</button>
+        <button onclick="testBooksAPI()">Test Books API (requires MongoDB)</button>
+        
+        <div id="status" class="status" style="display: none;"></div>
+        <div id="response" class="response" style="display: none;"></div>
+    </div>
+
+    <script>
+        document.getElementById('time').textContent = new Date().toLocaleString();
+
+        function showStatus(message, isError = false) {
+            const status = document.getElementById('status');
+            status.textContent = message;
+            status.className = `status ${isError ? 'status-error' : 'status-success'}`;
+            status.style.display = 'block';
+        }
+
+        function showResponse(data) {
+            const response = document.getElementById('response');
+            response.textContent = JSON.stringify(data, null, 2);
+            response.style.display = 'block';
+        }
+
+        async function testTodoAPI() {
+            try {
+                showStatus('Testing Todo API...');
+                const response = await fetch('http://localhost:5021/api/TodoItems');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                showStatus(`✅ Todo API is working! Found ${data.length} items.`);
+                showResponse(data);
+            } catch (error) {
+                showStatus(`❌ Todo API Error: ${error.message}`, true);
+                showResponse({ error: error.message });
+            }
+        }
+
+        async function addSampleTodo() {
+            try {
+                showStatus('Adding sample todo...');
+                const response = await fetch('http://localhost:5021/api/TodoItems', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: 'Demo Todo from Web Client',
+                        isComplete: false
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                showStatus(`✅ Todo added successfully! ID: ${data.id}`);
+                showResponse(data);
+            } catch (error) {
+                showStatus(`❌ Add Todo Error: ${error.message}`, true);
+                showResponse({ error: error.message });
+            }
+        }
+
+        async function testBooksAPI() {
+            try {
+                showStatus('Testing Books API...');
+                const response = await fetch('http://localhost:5007/api/Books');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                showStatus(`✅ Books API is working! Found ${data.length} books.`);
+                showResponse(data);
+            } catch (error) {
+                showStatus(`❌ Books API Error: ${error.message} (MongoDB required)`, true);
+                showResponse({ error: error.message });
+            }
+        }
+    </script>
+</body>
+</html>

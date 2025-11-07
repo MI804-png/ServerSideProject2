@@ -27,6 +27,7 @@ C:\project\ServerSideProject2\ControllerApi\obj\Debug\net9.0\ControllerApi.Assem
 C:\project\ServerSideProject2\ControllerApi\obj\Debug\net9.0\ControllerApi.csproj.CoreCompileInputs.cache
 C:\project\ServerSideProject2\ControllerApi\obj\Debug\net9.0\ControllerApi.MvcApplicationPartsAssemblyInfo.cs
 C:\project\ServerSideProject2\ControllerApi\obj\Debug\net9.0\ControllerApi.MvcApplicationPartsAssemblyInfo.cache
+C:\project\ServerSideProject2\ControllerApi\obj\Debug\net9.0\ControllerApi.sourcelink.json
 C:\project\ServerSideProject2\ControllerApi\obj\Debug\net9.0\rjimswa.dswa.cache.json
 C:\project\ServerSideProject2\ControllerApi\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
 C:\project\ServerSideProject2\ControllerApi\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json

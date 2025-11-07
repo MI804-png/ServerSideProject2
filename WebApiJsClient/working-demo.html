@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASP.NET Core Web API Tutorial - Working Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        h1 { color: #007bff; text-align: center; }
+        h2 { color: #333; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="text"], input[type="number"] { 
+            padding: 8px; border: 1px solid #ddd; border-radius: 4px; 
+            width: 300px; font-size: 14px; 
+        }
+        input[type="checkbox"] { margin-right: 8px; }
+        button {
+            background-color: #007bff; color: white; padding: 10px 20px;
+            border: none; border-radius: 4px; cursor: pointer; margin-right: 10px;
+            margin-bottom: 10px; font-size: 14px;
+        }
+        button:hover { background-color: #0056b3; }
+        button.delete { background-color: #dc3545; }
+        button.delete:hover { background-color: #c82333; }
+        .status { 
+            padding: 10px; margin: 10px 0; border-radius: 4px;
+            font-family: monospace; font-size: 12px;
+        }
+        .status.success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .status.error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .status.info { background-color: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; font-weight: bold; }
+        .completed { text-decoration: line-through; color: #6c757d; }
+        .api-info {
+            background-color: #e9ecef; padding: 10px; border-radius: 4px;
+            margin-bottom: 15px; font-family: monospace; font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚀 ASP.NET Core Web API Tutorial - Microsoft Docs Implementation</h1>
+    
+    <div class="container">
+        <h2>📋 1. Controller-based Web API (Todo Items)</h2>
+        <div class="api-info">API Endpoint: http://localhost:5021/api/TodoItems</div>
+        
+        <div class="form-group">
+            <label for="todoName">Todo Name:</label>
+            <input type="text" id="todoName" placeholder="Enter todo item name">
+        </div>
+        <div class="form-group">
+            <label>
+                <input type="checkbox" id="todoComplete"> Mark as Complete
+            </label>
+        </div>
+        
+        <button onclick="addTodo()">➕ Add Todo</button>
+        <button onclick="getTodos()">📋 Get All Todos</button>
+        <button onclick="clearTodoDisplay()">🗑️ Clear Display</button>
+        
+        <div id="todoStatus" class="status" style="display: none;"></div>
+        
+        <div id="todoResults" style="display: none;">
+            <h3>📝 Todo Items:</h3>
+            <table id="todoTable">
+                <thead>
+                    <tr><th>ID</th><th>Name</th><th>Complete</th><th>Actions</th></tr>
+                </thead>
+                <tbody id="todoTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>📚 2. Web API with MongoDB (Books)</h2>
+        <div class="api-info">API Endpoint: http://localhost:5007/api/Books</div>
+        <div class="status info">⚠️ Note: MongoDB must be running for this API to work</div>
+        
+        <div class="form-group">
+            <label for="bookName">Book Name:</label>
+            <input type="text" id="bookName" placeholder="Enter book name">
+        </div>
+        <div class="form-group">
+            <label for="bookAuthor">Author:</label>
+            <input type="text" id="bookAuthor" placeholder="Enter author name">
+        </div>
+        <div class="form-group">
+            <label for="bookCategory">Category:</label>
+            <input type="text" id="bookCategory" placeholder="Enter category">
+        </div>
+        <div class="form-group">
+            <label for="bookPrice">Price:</label>
+            <input type="number" id="bookPrice" placeholder="Enter price" step="0.01">
+        </div>
+        
+        <button onclick="addBook()">➕ Add Book</button>
+        <button onclick="getBooks()">📚 Get All Books</button>
+        <button onclick="clearBookDisplay()">🗑️ Clear Display</button>
+        
+        <div id="bookStatus" class="status" style="display: none;"></div>
+        
+        <div id="bookResults" style="display: none;">
+            <h3>📖 Books:</h3>
+            <table id="bookTable">
+                <thead>
+                    <tr><th>ID</th><th>Name</th><th>Author</th><th>Category</th><th>Price</th><th>Actions</th></tr>
+                </thead>
+                <tbody id="bookTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>💻 3. JavaScript Client Implementation</h2>
+        <p>This page demonstrates consuming ASP.NET Core Web APIs using modern JavaScript:</p>
+        <ul>
+            <li>✅ Fetch API for HTTP requests</li>
+            <li>✅ Async/await for handling promises</li>
+            <li>✅ Error handling and user feedback</li>
+            <li>✅ Dynamic DOM manipulation</li>
+            <li>✅ CORS-enabled API communication</li>
+        </ul>
+        
+        <div class="api-info">
+            <strong>Tutorial Source:</strong><br>
+            https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-8.0&tabs=visual-studio
+        </div>
+    </div>
+
+    <script>
+        // API Configuration
+        const TODO_API_URL = 'http://localhost:5021/api/TodoItems';
+        const BOOKS_API_URL = 'http://localhost:5007/api/Books';
+
+        // Utility Functions
+        function showStatus(elementId, message, type = 'info') {
+            const element = document.getElementById(elementId);
+            element.textContent = message;
+            element.className = `status ${type}`;
+            element.style.display = 'block';
+        }
+
+        function hideElement(elementId) {
+            document.getElementById(elementId).style.display = 'none';
+        }
+
+        function showElement(elementId) {
+            document.getElementById(elementId).style.display = 'block';
+        }
+
+        // Todo API Functions
+        async function addTodo() {
+            const name = document.getElementById('todoName').value.trim();
+            const isComplete = document.getElementById('todoComplete').checked;
+            
+            if (!name) {
+                showStatus('todoStatus', 'Please enter a todo name', 'error');
+                return;
+            }
+            
+            const todoDto = { name, isComplete };
+            
+            try {
+                showStatus('todoStatus', 'Adding todo...', 'info');
+                
+                const response = await fetch(TODO_API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(todoDto)
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const result = await response.json();
+                showStatus('todoStatus', `✅ Todo created successfully! ID: ${result.id}`, 'success');
+                
+                // Clear form
+                document.getElementById('todoName').value = '';
+                document.getElementById('todoComplete').checked = false;
+                
+                // Refresh list
+                await getTodos();
+                
+            } catch (error) {
+                console.error('Add Todo Error:', error);
+                showStatus('todoStatus', `❌ Error: ${error.message}`, 'error');
+            }
+        }
+
+        async function getTodos() {
+            try {
+                showStatus('todoStatus', 'Loading todos...', 'info');
+                
+                const response = await fetch(TODO_API_URL);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const todos = await response.json();
+                displayTodos(todos);
+                showStatus('todoStatus', `✅ Retrieved ${todos.length} todo items`, 'success');
+                
+            } catch (error) {
+                console.error('Get Todos Error:', error);
+                showStatus('todoStatus', `❌ Error: ${error.message}`, 'error');
+                hideElement('todoResults');
+            }
+        }
+
+        function displayTodos(todos) {
+            const tbody = document.getElementById('todoTableBody');
+            tbody.innerHTML = '';
+            
+            if (todos.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="4">No todos found</td></tr>';
+            } else {
+                todos.forEach(todo => {
+                    const row = tbody.insertRow();
+                    row.innerHTML = `
+                        <td>${todo.id}</td>
+                        <td class="${todo.isComplete ? 'completed' : ''}">${todo.name}</td>
+                        <td>${todo.isComplete ? '✅ Yes' : '❌ No'}</td>
+                        <td>
+                            <button onclick="toggleTodo(${todo.id}, '${todo.name.replace(/'/g, "\\'")}', ${todo.isComplete})">
+                                ${todo.isComplete ? '↩️ Mark Incomplete' : '✅ Mark Complete'}
+                            </button>
+                            <button class="delete" onclick="deleteTodo(${todo.id})">🗑️ Delete</button>
+                        </td>
+                    `;
+                });
+            }
+            
+            showElement('todoResults');
+        }
+
+        async function toggleTodo(id, name, currentStatus) {
+            const todoDto = { id, name, isComplete: !currentStatus };
+            
+            try {
+                showStatus('todoStatus', 'Updating todo...', 'info');
+                
+                const response = await fetch(`${TODO_API_URL}/${id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(todoDto)
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                showStatus('todoStatus', '✅ Todo updated successfully!', 'success');
+                await getTodos();
+                
+            } catch (error) {
+                console.error('Toggle Todo Error:', error);
+                showStatus('todoStatus', `❌ Error: ${error.message}`, 'error');
+            }
+        }
+
+        async function deleteTodo(id) {
+            if (!confirm('Are you sure you want to delete this todo?')) return;
+            
+            try {
+                showStatus('todoStatus', 'Deleting todo...', 'info');
+                
+                const response = await fetch(`${TODO_API_URL}/${id}`, { method: 'DELETE' });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                showStatus('todoStatus', '✅ Todo deleted successfully!', 'success');
+                await getTodos();
+                
+            } catch (error) {
+                console.error('Delete Todo Error:', error);
+                showStatus('todoStatus', `❌ Error: ${error.message}`, 'error');
+            }
+        }
+
+        function clearTodoDisplay() {
+            hideElement('todoResults');
+            hideElement('todoStatus');
+        }
+
+        // Book API Functions
+        async function addBook() {
+            const bookName = document.getElementById('bookName').value.trim();
+            const author = document.getElementById('bookAuthor').value.trim();
+            const category = document.getElementById('bookCategory').value.trim();
+            const price = parseFloat(document.getElementById('bookPrice').value);
+            
+            if (!bookName || !author || !category || isNaN(price)) {
+                showStatus('bookStatus', 'Please fill in all fields with valid data', 'error');
+                return;
+            }
+            
+            const book = { bookName, author, category, price };
+            
+            try {
+                showStatus('bookStatus', 'Adding book...', 'info');
+                
+                const response = await fetch(BOOKS_API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(book)
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const result = await response.json();
+                showStatus('bookStatus', `✅ Book created successfully! ID: ${result.id || 'Generated'}`, 'success');
+                
+                // Clear form
+                document.getElementById('bookName').value = '';
+                document.getElementById('bookAuthor').value = '';
+                document.getElementById('bookCategory').value = '';
+                document.getElementById('bookPrice').value = '';
+                
+                // Refresh list
+                await getBooks();
+                
+            } catch (error) {
+                console.error('Add Book Error:', error);
+                showStatus('bookStatus', `❌ Error: ${error.message}. Make sure MongoDB is running!`, 'error');
+            }
+        }
+
+        async function getBooks() {
+            try {
+                showStatus('bookStatus', 'Loading books...', 'info');
+                
+                const response = await fetch(BOOKS_API_URL);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const books = await response.json();
+                displayBooks(books);
+                showStatus('bookStatus', `✅ Retrieved ${books.length} books`, 'success');
+                
+            } catch (error) {
+                console.error('Get Books Error:', error);
+                showStatus('bookStatus', `❌ Error: ${error.message}. Make sure MongoDB is running!`, 'error');
+                hideElement('bookResults');
+            }
+        }
+
+        function displayBooks(books) {
+            const tbody = document.getElementById('bookTableBody');
+            tbody.innerHTML = '';
+            
+            if (books.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6">No books found</td></tr>';
+            } else {
+                books.forEach(book => {
+                    const row = tbody.insertRow();
+                    row.innerHTML = `
+                        <td>${book.id || 'N/A'}</td>
+                        <td>${book.bookName}</td>
+                        <td>${book.author}</td>
+                        <td>${book.category}</td>
+                        <td>$${book.price.toFixed(2)}</td>
+                        <td>
+                            <button class="delete" onclick="deleteBook('${book.id}')">🗑️ Delete</button>
+                        </td>
+                    `;
+                });
+            }
+            
+            showElement('bookResults');
+        }
+
+        async function deleteBook(id) {
+            if (!confirm('Are you sure you want to delete this book?')) return;
+            
+            try {
+                showStatus('bookStatus', 'Deleting book...', 'info');
+                
+                const response = await fetch(`${BOOKS_API_URL}/${id}`, { method: 'DELETE' });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                showStatus('bookStatus', '✅ Book deleted successfully!', 'success');
+                await getBooks();
+                
+            } catch (error) {
+                console.error('Delete Book Error:', error);
+                showStatus('bookStatus', `❌ Error: ${error.message}`, 'error');
+            }
+        }
+
+        function clearBookDisplay() {
+            hideElement('bookResults');
+            hideElement('bookStatus');
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('ASP.NET Core Web API Tutorial Demo Loaded');
+            console.log('Todo API:', TODO_API_URL);
+            console.log('Books API:', BOOKS_API_URL);
+            
+            // Add Enter key support
+            document.getElementById('todoName').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') addTodo();
+            });
+            
+            document.getElementById('bookPrice').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') addBook();
+            });
+        });
+    </script>
+</body>
+</html>
