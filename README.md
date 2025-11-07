@@ -7,6 +7,16 @@
 This project implements the three main sections from the Microsoft ASP.NET Core Web API tutorial:
 https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-8.0&tabs=visual-studio
 
+## 🛠️ Technologies Used
+
+| Component | Technologies | Purpose |
+|-----------|-------------|---------|
+| **Backend APIs** | C# (.NET 9.0), ASP.NET Core | High-performance web APIs |
+| **Data Storage** | Entity Framework Core, MongoDB | SQL and NoSQL database integration |
+| **Frontend Client** | JavaScript (ES6+), HTML5, CSS3 | Interactive web interface |
+| **Automation** | PowerShell, JSON | Setup scripts and configuration |
+| **Data Exchange** | REST APIs, JSON | Standard web communication |
+
 ## Project Structure
 
 ```

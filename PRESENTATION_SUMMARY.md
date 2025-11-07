@@ -51,6 +51,49 @@ ServerSideProject2/
 
 ---
 
+## 💻 Programming Languages & Technology Choices
+
+### **🎯 Strategic Language Selection**
+
+| Language | Purpose | Why Chosen |
+|----------|---------|------------|
+| **🔷 C# (.NET 9.0)** | Backend APIs | Type safety, performance, enterprise-ready |
+| **🟨 JavaScript (ES6+)** | Frontend Client | Universal browser support, async programming |
+| **🔵 JSON** | Data Exchange | Lightweight, language-agnostic, REST standard |
+| **🟫 HTML5/CSS3** | UI Presentation | Web standards, responsive design |
+| **🔷 PowerShell** | Automation | Windows integration, deployment scripts |
+
+### **🏗️ Framework Justification**
+
+**ASP.NET Core Web API:**
+- ✅ **High Performance** - Top-tier benchmark results
+- ✅ **Cross-Platform** - Windows, Linux, macOS support  
+- ✅ **Type Safety** - Strong typing prevents runtime errors
+- ✅ **Built-in Features** - DI, middleware, CORS, authentication
+- ✅ **Enterprise Grade** - Used by Fortune 500 companies
+
+**Database Technology Mix:**
+- **Entity Framework Core** → Relational data with type-safe LINQ queries
+- **MongoDB** → Document storage for flexible, schema-less data
+
+### **🎓 Educational Value**
+
+**Full-Stack Skills Demonstrated:**
+```
+Backend Development → C# + ASP.NET Core + Entity Framework
+Frontend Development → JavaScript + HTML5 + CSS3 + Fetch API
+Database Management → SQL (EF Core) + NoSQL (MongoDB)
+DevOps Practices → PowerShell automation + Git version control
+```
+
+**Industry-Relevant Technologies:**
+- **Enterprise Development**: .NET is used by 65% of Fortune 500 companies
+- **Web Standards**: JavaScript/JSON are universal web technologies
+- **Cloud Computing**: All technologies are cloud-ready and scalable
+- **Modern Practices**: Async programming, dependency injection, RESTful design
+
+---
+
 ## 🏗️ Architecture Overview
 
 ```
